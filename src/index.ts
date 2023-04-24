@@ -24,12 +24,12 @@ let futureRound: number
 
 // https://date-fns.org/v2.29.3/docs/Time-Zones
 const timeZone = env.user.TIME_ZONE
-const futureTimeGY = utcToZonedTime(fromUnixTime(future), timeZone)
+const futureTime = utcToZonedTime(fromUnixTime(future), timeZone)
 
 // https://date-fns-interactive.netlify.app
 const pattern = 'EEEE, LLLL do yyyy @ HH:mm a'
 // https://github.com/marnusw/date-fns-tz#format
-const secretDate = format(futureTimeGY, pattern, { timeZone: timeZone })
+const secretDate = format(futureTime, pattern, { timeZone: timeZone })
 
 // currentUNIX - genesisUNIX / 30 = drandRound
 const getFutureRound = (genesis: number, future: number) => {
